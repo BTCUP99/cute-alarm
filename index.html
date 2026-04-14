@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cute Alarm - 可爱闹钟</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">🐱</span>
+          <h1>可爱闹钟</h1>
+        </div>
+        <div class="current-time" id="currentTime">00:00</div>
+      </div>
+      <div class="date-display" id="currentDate">2024年1月1日 星期一</div>
+    </header>
+
+    <!-- Alarm List -->
+    <main class="alarm-list" id="alarmList">
+      <!-- Alarms will be rendered here -->
+    </main>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">😴</div>
+      <p>还没有设置闹钟</p>
+      <p class="empty-hint">点击下方按钮添加</p>
+    </div>
+
+    <!-- Add Button -->
+    <button class="add-btn" id="addBtn">
+      <span class="add-icon">+</span>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal" id="alarmModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modalTitle">添加闹钟</h2>
+          <button class="close-btn" id="closeModal">×</button>
+        </div>
+
+        <div class="time-picker">
+          <input type="time" id="alarmTime" value="08:00" />
+        </div>
+
+        <div class="form-group">
+          <label>标签</label>
+          <input type="text" id="alarmLabel" placeholder="起床" maxlength="20" />
+        </div>
+
+        <div class="form-group">
+          <label>铃声</label>
+          <select id="alarmRingtone">
+            <option value="cute">🐱 猫咪喵喵</option>
+            <option value="bell">🔔 经典铃声</option>
+            <option value="chime">🎐 清脆风铃</option>
+            <option value="birds">🐦 鸟鸣声</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>重复</label>
+          <div class="weekdays">
+            <button type="button" class="day-btn" data-day="0">一</button>
+            <button type="button" class="day-btn" data-day="1">二</button>
+            <button type="button" class="day-btn" data-day="2">三</button>
+            <button type="button" class="day-btn" data-day="3">四</button>
+            <button type="button" class="day-btn" data-day="4">五</button>
+            <button type="button" class="day-btn weekend" data-day="5">六</button>
+            <button type="button" class="day-btn weekend" data-day="6">日</button>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelBtn">取消</button>
+          <button type="button" class="btn btn-primary" id="saveBtn">保存</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ring Modal -->
+    <div class="ring-modal" id="ringModal">
+      <div class="ring-content">
+        <div class="ring-icon">⏰</div>
+        <h2 class="ring-title" id="ringLabel">该起床啦！</h2>
+        <p class="ring-time" id="ringTime">08:00</p>
+        <button class="dismiss-btn" id="dismissBtn">知道了~</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
