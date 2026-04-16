@@ -3,6 +3,8 @@ name: Build Windows App
 on:
   push:
     branches: [main]
+    tags:
+      - 'v*'
   release:
     types: [created]
 
